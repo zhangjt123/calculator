@@ -1,0 +1,7 @@
+fastapi>=0.110
+uvicorn>=0.29
+sqlalchemy>=2.0
+pydantic>=2.0
+qrcode>=7.4
+# 生产环境切换 PostgreSQL（Neon）时取消下面一行并安装 psycopg2-binary：
+# psycopg2-binary>=2.9

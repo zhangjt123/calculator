@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 虚拟环境（体积大，不入库）
+.venv/
+venv/
+
+# SQLite 数据库（运行时生成，含本地历史记录）
+backend/calculator.db
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

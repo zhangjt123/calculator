@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>前后端分离计算器</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="mobile-hint">
+      <span class="mobile-hint-label">📱 手机访问（同一 WiFi）</span>
+      <img class="qr" src="/api/qr" alt="手机访问二维码" />
+      <span id="lan-url" class="lan-url">…</span>
+    </div>
+
+    <section class="calculator panel">
+      <header class="panel-header">
+        <h1>计算器</h1>
+        <div class="header-right">
+          <button id="mode-toggle" class="mode-toggle">科学</button>
+          <span id="status" class="status">连接中…</span>
+        </div>
+      </header>
+
+      <div class="display">
+        <div class="display-top">
+          <div id="expression" class="expression"></div>
+          <button id="copy" class="copy" title="复制结果">复制</button>
+        </div>
+        <div id="result" class="result">0</div>
+      </div>
+
+      <div class="keys">
+        <!-- 科学计算器模块（默认收起，点击“科学”展开） -->
+        <button class="key fn sci" data-value="(">(</button>
+        <button class="key fn sci" data-value=")">)</button>
+        <button class="key fn sci" data-action="sqrt">√</button>
+        <button class="key fn sci" data-action="square">x²</button>
+
+        <button class="key fn sci" data-action="power">xʸ</button>
+        <button class="key fn sci" data-action="reciprocal">1/x</button>
+        <button class="key fn sci" data-action="factorial">n!</button>
+        <button class="key fn sci" data-action="pi">π</button>
+
+        <button class="key fn sci" data-action="sin">sin</button>
+        <button class="key fn sci" data-action="cos">cos</button>
+        <button class="key fn sci" data-action="tan">tan</button>
+        <button class="key fn sci" data-action="e">e</button>
+
+        <button class="key fn sci" data-action="ln">ln</button>
+        <button class="key fn sci" data-action="log">log</button>
+        <button class="key fn sci" data-action="asin">asin</button>
+        <button class="key fn sci" data-action="atan">atan</button>
+
+        <!-- 基础模式 -->
+        <button class="key fn" data-action="clear">C</button>
+        <button class="key fn" data-action="backspace">⌫</button>
+        <button class="key fn" data-action="percent">%</button>
+        <button class="key op" data-value="/">÷</button>
+
+        <button class="key" data-value="7">7</button>
+        <button class="key" data-value="8">8</button>
+        <button class="key" data-value="9">9</button>
+        <button class="key op" data-value="*">×</button>
+
+        <button class="key" data-value="4">4</button>
+        <button class="key" data-value="5">5</button>
+        <button class="key" data-value="6">6</button>
+        <button class="key op" data-value="-">−</button>
+
+        <button class="key" data-value="1">1</button>
+        <button class="key" data-value="2">2</button>
+        <button class="key" data-value="3">3</button>
+        <button class="key op" data-value="+">+</button>
+
+        <button class="key fn" data-action="negate">±</button>
+        <button class="key" data-value="0">0</button>
+        <button class="key" data-value=".">.</button>
+        <button class="key eq" data-action="equals">=</button>
+      </div>
+
+      <p class="hint">键盘：Enter 计算 · Esc 清空 · ⌫ 退格 · % 百分号 · ^ 幂 · 三角按角度制</p>
+    </section>
+
+    <section class="history panel">
+      <header class="panel-header">
+        <h2>历史记录</h2>
+        <button id="clear-history" class="link-btn">清空</button>
+      </header>
+
+      <input id="search" class="search" type="text" placeholder="搜索表达式…" />
+
+      <ul id="history-list" class="history-list"></ul>
+
+      <footer class="pagination">
+        <button id="prev" class="page-btn">上一页</button>
+        <span id="page-info" class="page-info">1 / 1</span>
+        <button id="next" class="page-btn">下一页</button>
+      </footer>
+    </section>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
