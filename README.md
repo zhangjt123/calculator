@@ -64,7 +64,7 @@ calculator/
 
 ## 切换 PostgreSQL（生产环境）
 
-设置 `DATABASE_URL` 环境变量并安装 `psycopg2-binary` 即可，代码无需改动：
+设置 `DATABASE_URL` 环境变量并安装 `psycopg2-binary` 即可
 
 ```powershell
 $env:DATABASE_URL = "postgresql+psycopg2://user:password@host:5432/dbname"
